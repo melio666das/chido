@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periódico Digital</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<header>
+    <h1>📰 Mi Periódico Digital</h1>
+</header>
+
+<button id="themeToggle">🌙</button>
+<nav>
+    <ul>
+        <li onclick="mostrarSeccion('inicio')">Inicio</li>
+        <li onclick="mostrarSeccion('noticias')">Noticias</li>
+        <li onclick="mostrarSeccion('musica')">Música</li>
+        <li onclick="mostrarSeccion('moda')">Moda</li>
+        <li onclick="mostrarSeccion('comida')">Comida</li>
+        <li onclick="mostrarSeccion('tecnologia')">Tecnología</li>
+        <li onclick="mostrarSeccion('deportes')">Deportes</li>
+        <li onclick="mostrarSeccion('juegos')">Juegos</li>
+    </ul>
+</nav>
+
+<main>
+
+<!-- 🏠 INICIO (SIMPLIFICADO) -->
+<section id="inicio" class="seccion activa">
+    <div class="noticia-grande">
+        <img src="https://picsum.photos/800/400">
+        <h2>Bienvenido</h2>
+        <p>Este es mi periódico digital.</p>
+    </div>
+</section>
+
+<!-- 📰 SECCIÓN NOTICIAS --> 
+ <section id="noticias" class="seccion"> 
+    <!-- BLOQUE DE NOTICIA 1 --> 
+     <div class="fila-noticias"> 
+        <div class="columna-principal"> 
+            <div class="noticia-grande"> 
+                <img src="pu.jpg" alt="Noticia Principal"> 
+                <h2>Noticia Principal: 31 Minutos</h2> 
+                <p>Información importante del día sobre el magno evento en el Zócalo.</p> 
+                <p class="fuente">Fuente: Yahoo Noticias</p>
+             </div> 
+            </div> 
+            <div class="secundarias"> 
+                <article> 
+                    <img src="jus.avif" alt="Info extra"> 
+                    <h3>Información</h3> 
+                    <p>Ciudad de México, 30 de abril 2026. 230,000 personas asistieron al concierto.</p>
+                     <p class="fuente">Fuente: El Universal</p> 
+                    </article> 
+                    <article> 
+                        <div class="contenedor-video"> 
+                            <iframe src="https://www.youtube.com/embed/PEuBMoi5Nq4" frameborder="0" allowfullscreen>   
+                            </iframe> 
+                        </div> 
+                        <h3>Video del Show</h3> 
+                        <p>El espectáculo fue organizado por la Secretaría de Cultura capitalina.</p> 
+                        <p class="fuente">Fuente: @larazon_mx</p> 
+                    </article> 
+                </div> 
+            </div> 
+            <hr class="divisor"> 
+            <!-- BLOQUE DE NOTICIA 2 (Actualizado) --> 
+             <div class="fila-noticias"> 
+                <div class="columna-principal"> 
+                    <div class="noticia-grande"> 
+                        <img src="https://picsum.photos/seed/noticia2/800/400" alt="Desarrollo urbano"> 
+                        <h2>Segunda Noticia: Plan de Recuperación Urbana</h2> 
+                        <p>El gobierno anuncia inversiones para renovar espacios públicos y mejorar el transporte. El proyecto prioriza áreas con mayor necesidad de infraestructura.</p> 
+                        <p class="fuente">Fuente: Diario Ciudadano</p> 
+                    </div> 
+                </div> 
+                <div class="secundarias"> 
+                    <article> 
+                        <img src="https://picsum.photos/seed/encuesta/400/250" alt="Encuesta ciudadana"> 
+                        <h3>Encuesta: Opinión ciudadana</h3> 
+                        <p>Resultados preliminares muestran apoyo mayoritario, con énfasis en transporte y áreas verdes.</p> 
+                    </article> <article> <div class="contenedor-video"> 
+                        <iframe src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0" allowfullscreen></iframe> 
+                    </div> 
+                    <h3>Video: Presentación del Proyecto</h3> <p>Resumen del plan y testimonios de vecinos afectados.</p> 
+</article>
+ </div>
+ </div>
+ </section>
+
+<!-- 🧠 MÚSICA -->
+<section id="musica" class="seccion">
+
+    <!-- AUDIO REAL -->
+    <audio id="audio"></audio>
+
+    <!-- 🔥 REPRODUCTOR FLOTANTE -->
+    <div class="music-float-player">
+
+        <div class="mfp-left">
+            <div class="cover" id="cover">🎵</div>
+
+            <div>
+                <h3 id="title">Canción</h3>
+                <p id="artist">Artista</p>
+            </div>
+        </div>
+
+        <div class="mfp-controls">
+            <button id="prev">⏮</button>
+            <button id="play">▶</button>
+            <button id="next">⏭</button>
+            <button id="repeat">🔁</button>
+            <button id="list">📜</button>
+        </div>
+
+        <div class="mfp-progress" id="bar">
+            <div id="fill"></div>
+        </div>
+
+        <div class="mfp-time">
+            <span id="cur">0:00</span>
+            <span id="dur">0:00</span>
+        </div>
+
+    </div>
+
+    <!-- 🎧 LISTA FLOTANTE -->
+    <div id="playlistPanel" class="playlist hidden"></div>
+
+    <!-- 🧠 BLOQUE 1 (CORREGIDO COMO EL DE ABAJO) -->
+    <div class="fila-noticias">
+
+        <div class="columna-principal">
+            <div class="noticia-grande">
+                <img src="https://picsum.photos/seed/musica/800/400">
+                <h2>Estreno: Single Oficial</h2>
+                <p>Información del tema y artista.</p>
+                <p class="fuente">Fuente: Music News</p>
+            </div>
+        </div>
+
+        <div class="secundarias">
+
+            <article>
+                <img src="https://picsum.photos/seed/music1/400/250">
+                <h3>Detalles</h3>
+                <p>Proceso creativo del artista.</p>
+            </article>
+
+            <article>
+                <div class="contenedor-video">
+                    <iframe
+                        src="https://www.youtube.com/embed/jfKfPfyJRdk"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <h3>Video oficial</h3>
+            </article>
+
+        </div>
+
+    </div>
+
+    <hr class="divisor">
+
+    <!-- 🧠 BLOQUE 2 (YA ESTABA BIEN) -->
+    <div class="fila-noticias">
+
+        <div class="columna-principal">
+            <div class="noticia-grande">
+                <img src="https://picsum.photos/seed/musica2/800/400">
+                <h2>Colaboración Internacional</h2>
+                <p>Fusión de estilos musicales.</p>
+                <p class="fuente">Fuente: Global Beats</p>
+            </div>
+        </div>
+
+        <div class="secundarias">
+
+            <article>
+                <img src="https://picsum.photos/seed/music2/400/250">
+                <h3>Detrás de cámaras</h3>
+                <p>Grabación en estudio.</p>
+            </article>
+
+            <article>
+                <div class="contenedor-video">
+                    <iframe
+                        src="https://www.youtube.com/embed/5qap5aO4i9A"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <h3>En vivo</h3>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+</section>
+<section id="moda" class="seccion">
+        <!-- MODA: contenido específico -->
+        <div class="fila-noticias">
+            <div class="columna-principal">
+                <div class="noticia-grande">
+                    <img src="https://picsum.photos/seed/moda/800/400" alt="Pasarela de moda">
+                    <h2>Tendencias 2026: Pasarelas y Moda Sostenible</h2>
+                    <p>Las colecciones apuestan por materiales reciclados y siluetas cómodas. Diseñadores locales ganan protagonismo en las semanas de la moda.</p>
+                    <p class="fuente">Fuente: Vogue Local</p>
+                </div>
+            </div>
+
+            <div class="secundarias">
+                <article>
+                    <img src="https://picsum.photos/seed/telas/400/250" alt="Detalles de telas">
+                    <h3>Materiales y Sostenibilidad</h3>
+                    <p>Análisis de nuevas telas ecológicas y consejos para mantener prendas por más tiempo.</p>
+                </article>
+
+                <article>
+                    <div class="contenedor-video">
+                        <iframe src="https://www.youtube.com/embed/M7lc1UVf-VE" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3>Video: Resumen de la Semana de la Moda</h3>
+                    <p>Lo más destacado de pasarelas y presentaciones de diseñadores emergentes.</p>
+                </article>
+            </div>
+        </div>
+        
+        <hr class="divisor">
+        <!-- BLOQUE ADICIONAL MODA -->
+        <div class="fila-noticias">
+            <div class="columna-principal">
+                <div class="noticia-grande">
+                    <img src="https://picsum.photos/seed/moda2/800/400" alt="Diseñador emergente">
+                    <h2>Diseñador Emergente: Colección Urbana</h2>
+                    <p>La nueva colección mezcla prendas utilitarias con estampados inspirados en la arquitectura local.</p>
+                    <p class="fuente">Fuente: Trend Report</p>
+                </div>
+            </div>
+
+            <div class="secundarias">
+                <article>
+                    <img src="https://picsum.photos/seed/atelier/400/250" alt="Atelier">
+                    <h3>Perfil: Atelier Local</h3>
+                    <p>Conoce al equipo creativo detrás de la colección y su compromiso con la producción ética.</p>
+                </article>
+
+                <article>
+                    <div class="contenedor-video">
+                        <iframe src="https://www.youtube.com/embed/2Vv-BfVoq4g" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3>Video: Making of</h3>
+                    <p>Proceso de creación y backstage de la sesión fotográfica.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="comida" class="seccion">
+        <!-- COMIDA: contenido específico -->
+        <div class="fila-noticias">
+            <div class="columna-principal">
+                <div class="noticia-grande">
+                    <img src="https://picsum.photos/seed/comida/800/400" alt="Plato destacado">
+                    <h2>Receta del Día: Tacos Gourmet con Sabor Local</h2>
+                    <p>Una receta fácil que combina ingredientes tradicionales con técnicas modernas para intensificar sabores.</p>
+                    <p class="fuente">Fuente: Sabores MX</p>
+                </div>
+            </div>
+
+            <div class="secundarias">
+                <article>
+                    <img src="https://picsum.photos/seed/mercado/400/250" alt="Ingredientes frescos">
+                    <h3>Mercado Local</h3>
+                    <p>Recomendaciones de mercados para comprar ingredientes frescos y de temporada.</p>
+                </article>
+
+                <article>
+                    <div class="contenedor-video">
+                        <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3>Video: Preparación paso a paso</h3>
+                    <p>Demostración corta de la receta principal con tips de cocina.</p>
+                </article>
+            </div>
+        </div>
+        
+        <hr class="divisor">
+        <!-- BLOQUE ADICIONAL COMIDA -->
+        <div class="fila-noticias">
+            <div class="columna-principal">
+                <div class="noticia-grande">
+                    <img src="https://picsum.photos/seed/comida2/800/400" alt="Postre tradicional">
+                    <h2>Especial: Postres Tradicionales con Giro Moderno</h2>
+                    <p>Cocineros reinterpretan postres clásicos agregando técnicas modernas y presentaciones contemporáneas.</p>
+                    <p class="fuente">Fuente: Dulce y Salado</p>
+                </div>
+            </div>
+
+            <div class="secundarias">
+                <article>
+                    <img src="https://picsum.photos/seed/pasteleria/400/250" alt="Pastelería">
+                    <h3>Ruta de Cafés</h3>
+                    <p>Selección de cafeterías que ofrecen maridajes ideales para postres descritos en el especial.</p>
+                </article>
+
+                <article>
+                    <div class="contenedor-video">
+                        <iframe src="https://www.youtube.com/embed/1roy4o4tqQM" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3>Video: Decoración y Técnicas</h3>
+                    <p>Técnicas de decoración rápidas para replicar en casa.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="tecnologia" class="seccion">
+        <!-- TECNOLOGÍA: contenido específico -->
+        <div class="fila-noticias">
+            <div class="columna-principal">
+                <div class="noticia-grande">
+                    <img src="https://picsum.photos/seed/tecnologia/800/400" alt="Innovación tecnológica">
+                    <h2>Lanzamiento: Nueva Plataforma de IA para PYMES</h2>
+                    <p>La plataforma facilita automatización de tareas y análisis de datos para pequeñas empresas, con planes accesibles y herramientas sin código.</p>
+                    <p class="fuente">Fuente: Tech Ahora</p>
+                </div>
+            </div>
+
+            <div class="secundarias">
+                <article>
+                    <img src="https://picsum.photos/seed/gadget/400/250" alt="Gadgets">
+                    <h3>Reseña: Gadget del Mes</h3>
+                    <p>Probamos el nuevo dispositivo portátil que promete mayor autonomía y mejor integración con servicios en la nube.</p>
+                </article>
+
+                <article>
+                    <div class="contenedor-video">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3>Video: Demo y Características</h3>
+                    <p>Presentación técnica y demo de la plataforma por sus desarrolladores.</p>
+                </article>
+            </div>
+        </div>
+        
+        <hr class="divisor">
+        <!-- BLOQUE ADICIONAL TECNOLOGÍA -->
+        <div class="fila-noticias">
+            <div class="columna-principal">
+                <div class="noticia-grande">
+                    <img src="https://picsum.photos/seed/ia/800/400" alt="IA aplicada">
+                    <h2>Innovación: IA para Agricultura Inteligente</h2>
+                    <p>Proyectos que combinan sensores y modelos predictivos para optimizar riego y rendimiento de cultivos.</p>
+                    <p class="fuente">Fuente: AgroTech</p>
+                </div>
+            </div>
+
+            <div class="secundarias">
+                <article>
+                    <img src="https://picsum.photos/seed/sensor/400/250" alt="Sensores">
+                    <h3>Startups a Seguir</h3>
+                    <p>Pequeñas empresas que están llevando soluciones IoT a zonas rurales con alto impacto social.</p>
+                </article>
+
+                <article>
+                    <div class="contenedor-video">
+                        <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3>Video: Caso de Estudio</h3>
+                    <p>Implementación real y resultados medibles de una solución de agricultura inteligente.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="deportes" class="seccion">
+        <!-- DEPORTES: contenido específico -->
+        <div class="fila-noticias">
+            <div class="columna-principal">
+                <div class="noticia-grande">
+                    <img src="https://picsum.photos/seed/deportes/800/400" alt="Evento deportivo">
+                    <h2>Resumen: Final Nacional de la Liga</h2>
+                    <p>El equipo campeón se coronó tras una emocionante prórroga; análisis de tácticas y figuras clave del partido.</p>
+                    <p class="fuente">Fuente: Marca Deportes</p>
+                </div>
+            </div>
+
+            <div class="secundarias">
+                <article>
+                    <img src="https://picsum.photos/seed/atleta/400/250" alt="Entrevista al jugador">
+                    <h3>Entrevista con el MVP</h3>
+                    <p>El jugador habla sobre la preparación física y mental para la final.</p>
+                </article>
+
+                <article>
+                    <div class="contenedor-video">
+                        <iframe src="https://www.youtube.com/embed/PEuBMoi5Nq4" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3>Video: Mejores Jugadas</h3>
+                    <p>Compilación de las jugadas más destacadas del encuentro.</p>
+                </article>
+            </div>
+        </div>
+        
+        <hr class="divisor">
+        <!-- BLOQUE ADICIONAL DEPORTES -->
+        <div class="fila-noticias">
+            <div class="columna-principal">
+                <div class="noticia-grande">
+                    <img src="https://picsum.photos/seed/deportes2/800/400" alt="Entrenamiento">
+                    <h2>Preparación: Cómo Llegaron los Finalistas</h2>
+                    <p>Análisis del calendario de entrenamiento y estrategias que llevaron a ambos equipos a la final.</p>
+                    <p class="fuente">Fuente: Entrena+ Deportes</p>
+                </div>
+            </div>
+
+            <div class="secundarias">
+                <article>
+                    <img src="https://picsum.photos/seed/estadisticas/400/250" alt="Estadísticas">
+                    <h3>Estadísticas Clave</h3>
+                    <p>Datos y métricas que explican el rendimiento de los equipos durante la temporada.</p>
+                </article>
+
+                <article>
+                    <div class="contenedor-video">
+                        <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3>Video: Entrevistas Tras la Final</h3>
+                    <p>Reacciones y análisis de entrenadores y jugadores luego del partido.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🎮 SECCIÓN JUEGOS -->
+    <section id="juegos" class="seccion">
+        <div class="juego">
+            <h2>🎮 Adivina el número</h2>
+            <p>Del 1 al 10</p>
+            <input type="number" id="numero" min="1" max="10" step="1" placeholder="1-10">
+            <button onclick="jugar()">Intentar</button>
+            <p id="resultado"></p>
+        </div>
+    </section>
+
+</main>
+
+
+</body>
+<script src="script.js"></script>
+</html>
