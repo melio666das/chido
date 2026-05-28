@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Periódico Digital</title>
+    <title>ES</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
 <header>
-    <h1>📰 Mi Periódico Digital</h1>
+    <h1>PERIODICO DIGITAL</h1>
 </header>
 
 <button id="themeToggle">🌙</button>
@@ -31,9 +31,12 @@
 <!-- 🏠 INICIO (SIMPLIFICADO) -->
 <section id="inicio" class="seccion activa">
     <div class="noticia-grande">
-        <img src="https://picsum.photos/800/400">
-        <h2>Bienvenido</h2>
-        <p>Este es mi periódico digital.</p>
+        <img src="japan.png">
+        <h2>Silent Hill f</h2>
+        <p>En los años 60, en Japón, el remoto pueblo de Ebisugaoka donde vive Shimizu Hinako se ve cubierto por una niebla repentina que transforma su hogar en una auténtica pesadilla.
+Mientras el pueblo se torna silencioso y la niebla se vuelve más espesa, Hinako debe explorar los laberínticos caminos de Ebisugaoka, resolver acertijos complejos y enfrentarse a monstruos grotescos para sobrevivir.
+Adéntrate en el mundo de Hinako, obra del reconocido autor Ryukishi07. Experimenta música cautivadora, que incluye piezas del compositor veterano de Silent Hill, Akira Yamaoka, y gráficos alucinantes en una atrapante historia de dudas, remordimientos y decisiones ineludibles. ¿Podrá Hinako entregarse a la belleza oculta dentro del terror? ¿O sucumbirá a la locura que le espera?
+Descubre un nuevo capítulo de la serie de Silent Hill, que combina el terror psicológico con una aterradora ambientación japonesa.</p>
     </div>
 </section>
 
@@ -43,10 +46,10 @@
      <div class="fila-noticias"> 
         <div class="columna-principal"> 
             <div class="noticia-grande"> 
-                <img src="pu.jpg" alt="Noticia Principal"> 
-                <h2>Noticia Principal: 31 Minutos</h2> 
-                <p>Información importante del día sobre el magno evento en el Zócalo.</p> 
-                <p class="fuente">Fuente: Yahoo Noticias</p>
+                <img src="MOTORS.jpg" alt="Noticia Principal"> 
+                <h2>General Motors producirá Aveo y Groove en México como parte de un paquete de inversiones de 1,000 mdd</h2> 
+                <p>General Motors producirá localmente Aveo y Groove, dos de los modelos de mayor volumen para la compañía en México y que hasta ahora importaba desde China. Este proyecto es parte de un paquete de inversiones por 1,000 millones de dólares que la armadora estadounidense hará en el país. La decisión ocurre en medio del endurecimiento comercial hacia los vehículos chinos.</p> 
+                <p class="fuente">Fuente: MSN</p>
              </div> 
             </div> 
             <div class="secundarias"> 
@@ -72,23 +75,13 @@
              <div class="fila-noticias"> 
                 <div class="columna-principal"> 
                     <div class="noticia-grande"> 
-                        <img src="https://picsum.photos/seed/noticia2/800/400" alt="Desarrollo urbano"> 
-                        <h2>Segunda Noticia: Plan de Recuperación Urbana</h2> 
+                        <img src="FENTA.jpg" alt="Desarrollo urbano"> 
+                        <h2>Tormenta de fentanilo: Los datos que revelan el éxito del pacto México-China</h2> 
                         <p>El gobierno anuncia inversiones para renovar espacios públicos y mejorar el transporte. El proyecto prioriza áreas con mayor necesidad de infraestructura.</p> 
-                        <p class="fuente">Fuente: Diario Ciudadano</p> 
+                        <p class="fuente">Fuente: MILENIO</p> 
                     </div> 
                 </div> 
-                <div class="secundarias"> 
-                    <article> 
-                        <img src="https://picsum.photos/seed/encuesta/400/250" alt="Encuesta ciudadana"> 
-                        <h3>Encuesta: Opinión ciudadana</h3> 
-                        <p>Resultados preliminares muestran apoyo mayoritario, con énfasis en transporte y áreas verdes.</p> 
-                    </article> <article> <div class="contenedor-video"> 
-                        <iframe src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0" allowfullscreen></iframe> 
-                    </div> 
-                    <h3>Video: Presentación del Proyecto</h3> <p>Resumen del plan y testimonios de vecinos afectados.</p> 
-</article>
- </div>
+                
  </div>
  </section>
 
@@ -98,8 +91,14 @@
     <!-- AUDIO REAL -->
     <audio id="audio"></audio>
 
+    <!-- 🎤 BOTÓN FLOTANTE "ESCUCHAR" -->
+    <button id="listenBtn" class="floating-listen-btn">
+        🎧 ¿Quieres<br>escuchar?
+    </button>
+
     <!-- 🔥 REPRODUCTOR FLOTANTE -->
-    <div class="music-float-player">
+    <div id="playerContainer" class="music-float-player hidden">
+        <button class="player-close-btn" id="closePlayer">✕</button>
 
         <div class="mfp-left">
             <div class="cover" id="cover">🎵</div>
@@ -126,7 +125,6 @@
             <span id="cur">0:00</span>
             <span id="dur">0:00</span>
         </div>
-
     </div>
 
     <!-- 🎧 LISTA FLOTANTE -->
@@ -137,34 +135,27 @@
 
         <div class="columna-principal">
             <div class="noticia-grande">
-                <img src="https://picsum.photos/seed/musica/800/400">
-                <h2>Estreno: Single Oficial</h2>
-                <p>Información del tema y artista.</p>
-                <p class="fuente">Fuente: Music News</p>
+                <img src="KK.webp">
+                <h2>Los ‘Mexican Raves’ y cómo la música latina sigue creciendo gracias al EDM</h2>
+                <p>Las nuevas generaciones han revolucionado la música con la reinvención de las fiestas que se desarrollan en Estados Unidos.</p>
+                <p class="fuente">Fuente: MILENIO</p>
             </div>
         </div>
 
         <div class="secundarias">
 
             <article>
-                <img src="https://picsum.photos/seed/music1/400/250">
-                <h3>Detalles</h3>
-                <p>Proceso creativo del artista.</p>
+                <img src="CAIFANES.webp">
+                <h3>Caifanes ofrece una noche de nostalgia y resistencia</h3>
+                <p>La banda mexicana revive los temas que han marcado casi cuatro décadas de historia musical; envían mensaje de apoyo a las madres buscadoras ante la crisis de desaparición forzada que azota al país</p>
             </article>
-
+</div>
+</div>
             <article>
-                <div class="contenedor-video">
-                    <iframe
-                        src="https://www.youtube.com/embed/jfKfPfyJRdk"
-                        frameborder="0"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <h3>Video oficial</h3>
+                <h3><img src="CAIFANES.webp">
+                <h3>MURIO SANTI YONAMINE DE LOS PARRALEÑOS</h3>
+                <p>Deja un vacio enre la comunidad de rock en argentina </p>
             </article>
-
-        </div>
-
     </div>
 
     <hr class="divisor">
@@ -212,26 +203,26 @@
         <div class="fila-noticias">
             <div class="columna-principal">
                 <div class="noticia-grande">
-                    <img src="https://picsum.photos/seed/moda/800/400" alt="Pasarela de moda">
-                    <h2>Tendencias 2026: Pasarelas y Moda Sostenible</h2>
-                    <p>Las colecciones apuestan por materiales reciclados y siluetas cómodas. Diseñadores locales ganan protagonismo en las semanas de la moda.</p>
-                    <p class="fuente">Fuente: Vogue Local</p>
+                    <img src="DIOR.avif" alt="Pasarela de moda">
+                    <h2>The Lady Dior Cherry Blossom</h2>
+                    <p>Para la colección Dior Otoño 2025, la Lady Dior se reinventa en una nueva versión llamada Cherry Blossom, un sutil homenaje a los fascinantes lazos que unen la Casa y Japón. Vestido con un cuero burdeos fascinante, revela un motivo de cerezo meticulosamente bordado salpicado de cuentas facetadas. Cada diseño está dispuesto con precisión infinita para fluir alrededor de la bolsa en un solo movimiento.</p>
+                    <p class="fuente">Fuente: DIOR</p>
                 </div>
             </div>
 
             <div class="secundarias">
                 <article>
-                    <img src="https://picsum.photos/seed/telas/400/250" alt="Detalles de telas">
-                    <h3>Materiales y Sostenibilidad</h3>
-                    <p>Análisis de nuevas telas ecológicas y consejos para mantener prendas por más tiempo.</p>
+                    <img src="VOGUE.webp" alt="Detalles de telas">
+                    <h3>El regreso de Rio Fashion Week es un triunfo necesario para la moda latina</h3>
+                    <p>Luego de una ausencia de poco más de diez años, así es como la semana de la moda de Brasil fortalece la perspectiva de la moda latina desde la ciudad</p>
                 </article>
 
                 <article>
                     <div class="contenedor-video">
-                        <iframe src="https://www.youtube.com/embed/M7lc1UVf-VE" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://www.bing.com/ck/a?!&&p=4b8c9c0a250be4e24d8e42c0de78f6db60c8fd4b2ac1c02d4399a01e5ad2e764JmltdHM9MTc3OTE0ODgwMA&ptn=3&ver=2&hsh=4&fclid=3c866142-4e1a-6bc0-22c5-761c4f486ae2&psq=Dior+Crucero+2027&u=a1aHR0cHM6Ly92YW5pZGFkLmVzL2Rpb3ItY3J1Y2Vyby0yMDI3LWpvbmF0aGFuLWFuZGVyc29uLWxvcy1hbmdlbGVzLw&ntb=1" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <h3>Video: Resumen de la Semana de la Moda</h3>
-                    <p>Lo más destacado de pasarelas y presentaciones de diseñadores emergentes.</p>
+                    <h3>Dior Crucero 2027: Jonathan Anderson escenifica una fantasía de cine negro de Hollywood en Los Ángeles</h3>
+                    <p>Jonathan Anderson ha presentado su primera colección Crucero para Dior en Los Ángeles, inspirándose en el cine negro de Hollywood y la naturaleza californiana.</p>
                 </article>
             </div>
         </div>
@@ -271,58 +262,32 @@
         <div class="fila-noticias">
             <div class="columna-principal">
                 <div class="noticia-grande">
-                    <img src="https://picsum.photos/seed/comida/800/400" alt="Plato destacado">
-                    <h2>Receta del Día: Tacos Gourmet con Sabor Local</h2>
-                    <p>Una receta fácil que combina ingredientes tradicionales con técnicas modernas para intensificar sabores.</p>
-                    <p class="fuente">Fuente: Sabores MX</p>
+                    <img src="DICK.webp">
+                    <h2>Aplazan hasta 2028 nuevas reglas de etiquetado en bebidas para no afectar precios
+</h2>
+                    <p>El documento explica que la ampliación a las fases para la revisión de los sellos negros es para evitar el aumento de costos a productos de la canasta básica de los programas sociales.
+</p>
+                    <p class="fuente">MILENIO </p>
                 </div>
             </div>
 
             <div class="secundarias">
                 <article>
-                    <img src="https://picsum.photos/seed/mercado/400/250" alt="Ingredientes frescos">
-                    <h3>Mercado Local</h3>
-                    <p>Recomendaciones de mercados para comprar ingredientes frescos y de temporada.</p>
+                    <img src="TECHITO.webp" alt="Ingredientes frescos">
+                    <h3>Sabores tropicales impulsan la innovación en el mercado del té helado europeo</h3>
+                    <p>Lipton apuesta por sabores tropicales que refleja la evolución del mercado global del té helado</p>
                 </article>
 
                 <article>
                     <div class="contenedor-video">
-                        <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://youtu.be/ySAF_GQt6w8" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <h3>Video: Preparación paso a paso</h3>
-                    <p>Demostración corta de la receta principal con tips de cocina.</p>
+                    <h3>Mexicanos priorizan gasto, sube 20.5% compra de alimentos y baja 13.1% pago por esparcimiento: Inegi</h3>
+                    <p>Los hogares mexicanos están gastando más, pero de forma más dirigida: destinan más recursos a alimentos y educación, y menos a entretenimiento pues de acuerdo con la Encuesta Nacional de Ingresos y Gastos de los Hogares (ENIGH) 2024.</p>
                 </article>
             </div>
         </div>
         
-        <hr class="divisor">
-        <!-- BLOQUE ADICIONAL COMIDA -->
-        <div class="fila-noticias">
-            <div class="columna-principal">
-                <div class="noticia-grande">
-                    <img src="https://picsum.photos/seed/comida2/800/400" alt="Postre tradicional">
-                    <h2>Especial: Postres Tradicionales con Giro Moderno</h2>
-                    <p>Cocineros reinterpretan postres clásicos agregando técnicas modernas y presentaciones contemporáneas.</p>
-                    <p class="fuente">Fuente: Dulce y Salado</p>
-                </div>
-            </div>
-
-            <div class="secundarias">
-                <article>
-                    <img src="https://picsum.photos/seed/pasteleria/400/250" alt="Pastelería">
-                    <h3>Ruta de Cafés</h3>
-                    <p>Selección de cafeterías que ofrecen maridajes ideales para postres descritos en el especial.</p>
-                </article>
-
-                <article>
-                    <div class="contenedor-video">
-                        <iframe src="https://www.youtube.com/embed/1roy4o4tqQM" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h3>Video: Decoración y Técnicas</h3>
-                    <p>Técnicas de decoración rápidas para replicar en casa.</p>
-                </article>
-            </div>
-        </div>
     </section>
 
     <section id="tecnologia" class="seccion">
@@ -330,18 +295,18 @@
         <div class="fila-noticias">
             <div class="columna-principal">
                 <div class="noticia-grande">
-                    <img src="https://picsum.photos/seed/tecnologia/800/400" alt="Innovación tecnológica">
-                    <h2>Lanzamiento: Nueva Plataforma de IA para PYMES</h2>
-                    <p>La plataforma facilita automatización de tareas y análisis de datos para pequeñas empresas, con planes accesibles y herramientas sin código.</p>
+                    <img src="TECNO.avif" alt="Innovación tecnológica">
+                    <h2>Prohibición de los ‘deepfakes’ sexuales y multas millonarias: el Gobierno aprueba su ley de IA</h2>
+                    <p>El Consejo de Ministros da luz verde a la normativa que traspone el reglamento europeo y que establece qué aplicaciones de inteligencia artificial están prohibidas</p>
                     <p class="fuente">Fuente: Tech Ahora</p>
                 </div>
             </div>
 
             <div class="secundarias">
                 <article>
-                    <img src="https://picsum.photos/seed/gadget/400/250" alt="Gadgets">
-                    <h3>Reseña: Gadget del Mes</h3>
-                    <p>Probamos el nuevo dispositivo portátil que promete mayor autonomía y mejor integración con servicios en la nube.</p>
+                    <img src="TECNOL.avif" alt="Gadgets">
+                    <h3>¿Por qué hay cada vez más sobresalientes en la universidad? La culpa es de ChatGPT</h3>
+                    <p>Una nueva investigación revela que al menos 1 de cada 10 trabajos está hecho con la ayuda de la IA. Las carreras donde los alumnos hacen más trampas son Económicas y Periodismo</p>
                 </article>
 
                 <article>
@@ -359,9 +324,9 @@
         <div class="fila-noticias">
             <div class="columna-principal">
                 <div class="noticia-grande">
-                    <img src="https://picsum.photos/seed/ia/800/400" alt="IA aplicada">
-                    <h2>Innovación: IA para Agricultura Inteligente</h2>
-                    <p>Proyectos que combinan sensores y modelos predictivos para optimizar riego y rendimiento de cultivos.</p>
+                    <img src="PAPA.avif" alt="IA aplicada">
+                    <h2>Un monje experto, un festival con Karol G y las inversiones vaticanas: así ha llegado el Papa a decir que “la IA debe ser desarmada”</h2>
+                    <p>Las críticas a las grandes tecnológicas de la primera encíclica de León XIV contrastan con el hecho de que la Iglesia no ve problema en comprar valores en esa industria</p>
                     <p class="fuente">Fuente: AgroTech</p>
                 </div>
             </div>
@@ -369,16 +334,8 @@
             <div class="secundarias">
                 <article>
                     <img src="https://picsum.photos/seed/sensor/400/250" alt="Sensores">
-                    <h3>Startups a Seguir</h3>
-                    <p>Pequeñas empresas que están llevando soluciones IoT a zonas rurales con alto impacto social.</p>
-                </article>
-
-                <article>
-                    <div class="contenedor-video">
-                        <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h3>Video: Caso de Estudio</h3>
-                    <p>Implementación real y resultados medibles de una solución de agricultura inteligente.</p>
+                    <h3>Ann Dooms, matemática: “En el mundo real, la intuición humana sigue siendo insustituible”</h3>
+                    <p>Es una de las expertas mundiales en lo que ella y su grupo llaman “matemática digital”: un término propio para distinguir el procesamiento clásico de señales o del análisis de datos más convencional</p>
                 </article>
             </div>
         </div>
@@ -389,27 +346,19 @@
         <div class="fila-noticias">
             <div class="columna-principal">
                 <div class="noticia-grande">
-                    <img src="https://picsum.photos/seed/deportes/800/400" alt="Evento deportivo">
-                    <h2>Resumen: Final Nacional de la Liga</h2>
-                    <p>El equipo campeón se coronó tras una emocionante prórroga; análisis de tácticas y figuras clave del partido.</p>
-                    <p class="fuente">Fuente: Marca Deportes</p>
+                    <img src="nba.htm" alt="Evento deportivo">
+                    <h2>Partidos del lunes 25 de mayo: Playoffs de la NBA y Beisbol MLB</h2>
+                    <p>El futbol en el mundo tiene una breve pausa, previo a la Copa del Mundo y el mundo deportivo se concentra en la NBA y el beisbol de las Grandes Ligas.</p>
                 </div>
             </div>
 
             <div class="secundarias">
                 <article>
-                    <img src="https://picsum.photos/seed/atleta/400/250" alt="Entrevista al jugador">
-                    <h3>Entrevista con el MVP</h3>
-                    <p>El jugador habla sobre la preparación física y mental para la final.</p>
+                    <img src="f1.webp" alt="Entrevista al jugador">
+                    <h3>Gucci entra a la F1: anuncian acuerdo millonario con Alpine que cambiará la parrilla</h3>
+                    <p>La icónica casa de moda entrará en lugar de BWT como patrocinador principal, en un acuerdo histórico estimado en más de 150 millones de dólares</p>
                 </article>
 
-                <article>
-                    <div class="contenedor-video">
-                        <iframe src="https://www.youtube.com/embed/PEuBMoi5Nq4" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h3>Video: Mejores Jugadas</h3>
-                    <p>Compilación de las jugadas más destacadas del encuentro.</p>
-                </article>
             </div>
         </div>
         
@@ -418,26 +367,17 @@
         <div class="fila-noticias">
             <div class="columna-principal">
                 <div class="noticia-grande">
-                    <img src="https://picsum.photos/seed/deportes2/800/400" alt="Entrenamiento">
-                    <h2>Preparación: Cómo Llegaron los Finalistas</h2>
-                    <p>Análisis del calendario de entrenamiento y estrategias que llevaron a ambos equipos a la final.</p>
-                    <p class="fuente">Fuente: Entrena+ Deportes</p>
+                    <img src="tudn.avif" alt="Entrenamiento">
+                    <h2>Estadio Cuauhtémoc de Puebla se cubre de nieve en pleno verano</h2>
+                    <p>Una imagen pocas veces vista en el futbol mexicano dejó una tormenta con granizo en la ciudad de Puebla.</p>
                 </div>
             </div>
 
             <div class="secundarias">
                 <article>
                     <img src="https://picsum.photos/seed/estadisticas/400/250" alt="Estadísticas">
-                    <h3>Estadísticas Clave</h3>
-                    <p>Datos y métricas que explican el rendimiento de los equipos durante la temporada.</p>
-                </article>
-
-                <article>
-                    <div class="contenedor-video">
-                        <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h3>Video: Entrevistas Tras la Final</h3>
-                    <p>Reacciones y análisis de entrenadores y jugadores luego del partido.</p>
+                    <h3>Cristiano Ronaldo le juega broma a Kylian Mbappé para vengarse</h3>
+                    <p>CR7 no se quedó de brazos cruzados tras la travesura de Mbappé en un comercial de Lego.</p>
                 </article>
             </div>
         </div>
@@ -453,6 +393,7 @@
             <p id="resultado"></p>
         </div>
     </section>
+
 
 </main>
 
