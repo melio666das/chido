@@ -17,6 +17,125 @@ themeToggle.addEventListener("click", () => {
 });
 
 /* =========================
+   🎤 BOTÓN FLOTANTE "ESCUCHAR"
+========================= */
+const listenBtn = document.getElementById("listenBtn");
+const playerContainer = document.getElementById("playerContainer");
+
+listenBtn.addEventListener("click", () => {
+    listenBtn.classList.add("disappearing");
+    
+    setTimeout(() => {
+        listenBtn.style.display = "none";
+        playerContainer.classList.remove("hidden");
+        playerContainer.classList.add("appearing");
+        playerContainer.style.animation = "slideInUp 0.5s ease";
+        
+        setTimeout(() => {
+            playerContainer.classList.remove("appearing");
+        }, 500);
+    }, 300);
+});
+
+document.getElementById("closePlayer").addEventListener("click", () => {
+    playerContainer.classList.add("disappearing");
+    
+    setTimeout(() => {
+        playerContainer.classList.add("hidden");
+        playerContainer.classList.remove("disappearing");
+        listenBtn.style.display = "flex";
+        listenBtn.classList.remove("disappearing");
+    }, 300);
+});
+
+/* =========================
+   🎤 MOVER REPRODUCTOR
+========================= */
+const player = document.getElementById("playerContainer");
+let isGrabbed = false;
+let startX = 0;
+let startY = 0;
+let currentX = 0;
+let currentY = 0;
+
+// Detectar si es mobile
+const isMobile = () => window.innerWidth <= 768;
+
+player.addEventListener("mousedown", (e) => {
+    if (e.target.closest(".player-close-btn") || e.target.closest(".mfp-controls button")) {
+        return;
+    }
+    
+    // Solo permitir movimiento en desktop
+    if (isMobile()) return;
+    
+    isGrabbed = true;
+    player.classList.add("grabbed");
+    startX = e.clientX - currentX;
+    startY = e.clientY - currentY;
+});
+
+player.addEventListener("touchstart", (e) => {
+    if (e.target.closest(".player-close-btn") || e.target.closest(".mfp-controls button")) {
+        return;
+    }
+    
+    // Solo permitir movimiento si NO es mobile o si está en posición alterada
+    if (!isMobile() || currentX !== 0 || currentY !== 0) {
+        isGrabbed = true;
+        player.classList.add("grabbed");
+        startX = e.touches[0].clientX - currentX;
+        startY = e.touches[0].clientY - currentY;
+    }
+});
+
+document.addEventListener("mousemove", (e) => {
+    if (!isGrabbed || isMobile()) return;
+    
+    currentX = e.clientX - startX;
+    currentY = e.clientY - startY;
+    
+    player.style.position = "fixed";
+    player.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    player.style.right = "auto";
+    player.style.bottom = "auto";
+    player.style.top = "0";
+    player.style.left = "0";
+    player.style.zIndex = "10000";
+});
+
+document.addEventListener("touchmove", (e) => {
+    if (!isGrabbed) return;
+    
+    if (isMobile() && (currentX === 0 && currentY === 0)) {
+        return; // No mover en mobile si está en posición normal
+    }
+    
+    e.preventDefault();
+    
+    currentX = e.touches[0].clientX - startX;
+    currentY = e.touches[0].clientY - startY;
+    
+    player.style.position = "fixed";
+    player.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    player.style.right = "auto";
+    player.style.bottom = "auto";
+    player.style.top = "0";
+    player.style.left = "0";
+    player.style.zIndex = "10000";
+}, { passive: false });
+
+document.addEventListener("mouseup", () => {
+    isGrabbed = false;
+    player.classList.remove("grabbed");
+});
+
+document.addEventListener("touchend", () => {
+    isGrabbed = false;
+    player.classList.remove("grabbed");
+});
+
+/* =========================
    🎮 JUEGO (igual)
 ========================= */
 function jugar() {
@@ -297,6 +416,14 @@ function updateUI(){
 ========================= */
 loadTrack();
 
+// Asegura que haya una sección activa al cargar la página
+if (!document.querySelector('.seccion.activa')) {
+    const primeraSeccion = document.querySelector('.seccion');
+    if (primeraSeccion) {
+        primeraSeccion.classList.add('activa');
+    }
+}
+
 /* =========================
    SECCIONES
 ========================= */
@@ -304,5 +431,8 @@ function mostrarSeccion(seccion){
     document.querySelectorAll(".seccion").forEach(sec=>{
         sec.classList.remove("activa");
     });
-    document.getElementById(seccion).classList.add("activa");
+    const target = document.getElementById(seccion);
+    if (target) {
+        target.classList.add("activa");
+    }
 }
